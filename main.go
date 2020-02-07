@@ -6,7 +6,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main() { 
 //
 var Population = 329252103 // population of U.S.
 var NetGain = 24 // rate of growth in people/seconds
