@@ -1,36 +1,40 @@
 // Programmer name: Jacob Harter
-// Date completed:  2/11/20
-// Description: calculate inputed distance of rods to feet miles and meters, then display.
+// Date completed:  2/18/2020
+// Description: have the computer count to a user specified number
 
 package main
 
-import "fmt" 
+import (
+    "fmt"
+    "math/rand"
+  
+) //adding the ability to do random numbers
 
 func main() {
-var input string 
-fmt.Println("Enter your temperature scale F, C or K") //prompt user to input their temp scale's initial
-fmt.Scanln(&input) //scan and save the input
-if input == "F" { //if it is Fahrenheit
-  var fahrenheit float32 //make float variable fahrenheit
-  fmt.Println("Enter your temperature") //prompt user to ask for their temperature
-  fmt.Scanln(&fahrenheit) //scan and save the input
-  var celsius = (fahrenheit-32)*5/9.0 //F to C
-  var kelvin float32 // make kelvin a variable
-  kelvin= (((fahrenheit - 32) * 5/9.0) + 273.15) //F to K
-  fmt.Println("Your temperature in Fahrenheit is",fahrenheit,",in Celsius it is",celsius,"and in Kelvin it is",kelvin) //print the temp as a number with the corresponding scale
- }else if input == "C"{ //if C
-   var celsius float32 //make float variable celsius
-   fmt.Println("Enter your temperature") //prompt user to input the temp
-  fmt.Scanln(&celsius) //scan and save the input
-  var fahrenheit = (celsius *9/5.0) + 32 // C to F
-  var kelvin = celsius + 273.15 // C to K
-  fmt.Println("Your temperature in Fahrenheit is",fahrenheit,",in Celsius it is",celsius,"and in Kelvin it is",kelvin) //print the temp as a number with the corresponding scale
- }else if input == "K"{ //if K
-   var kelvin float32 //make float variable kelvin
-   fmt.Println("Enter your temperature") //prompt user to enter their temp
-  fmt.Scanln(&kelvin) //scan and save input
-  var celsius = kelvin - 273.15 // K to C
-  var fahrenheit = (kelvin - 273.15) *9/5.0 + 32 //K to F
-  fmt.Println("Your temperature in Fahrenheit is",fahrenheit,",in Celsius it is",celsius,"and in Kelvin it is",kelvin) //print temp as a number with its corresponding scale
- }
+    var count = 1
+    var userGuess int
+    //create variable for count
+   fmt.Println("Enter the max range")
+    //ask the user to enter a max range for the guessing game and store that value in variable max.
+    var max int
+    fmt.Scanln(&max)
+    fmt.Println(&userGuess)
+    //this next line creates a random number from 1 to that guess for the computer to know.  You can test this by printing out the variable computerGuess
+    var computerGuess = rand.Intn(max)
+
+    //ask the user to enter a guess for the computer number
+    fmt.Println("Enter your guess")
+    fmt.Scanln(&userGuess)
+    //create a loop that compares the computerGuess to the userGuess while they are NOT equal go into the loop
+        //increase the count by 1
+        //tell the user that the guessed incorrect
+        //ask the user to enter a new guess for the computer number
+    for userGuess!=computerGuess{
+      count++
+      fmt.Println("You guessed incorrect")
+      fmt.Println("Try again")
+      fmt.Scanln(&userGuess)
+    }
+    //print out that the user got the answer correctly and how many guesses it took (the count)
+    fmt.Println("You guessed correctly, it took",count,"attempts")
 }
