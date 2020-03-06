@@ -1,88 +1,66 @@
 // Programmer name: Jacob Harter
-// Date completed:  2/25/2020
-// Description: Rock Paper Scissors w/ computer
+// Date completed:  3/05/2020
+// Description: tic tac toe, min max, name locator
 
 package main
 
 import (
     "fmt"
 )
-
 func main() {
- var grossIncome float32 //income variable
- var status int //status variable
-fmt.Println("Enter your gross income") //prompt input for income
-fmt.Scanln(&grossIncome)
-fmt.Println("Enter your status as a integer 1 for single, 2 for married filing jointed, 3 for head of household, 4 for married filing seperately")//prompt input for status
-fmt.Scanln(&status)
+ var column [3] string
+ column[0] = "O"
+ column[1] = "O"
+ column[2] = "O"
+ var row [3] string
+ row[0] = "O"
+ row[1] = "O"
+ row[2] = "O"
+  var row2 [3] string
+ row2[0] = "O"
+ row2[1] = "O"
+ row2[2] = "O"
+  var row3 [3] string
+ row3[0] = "O"
+ row3[1] = "O"
+ row3[2] = "O"
+ 
+ var userColumn int
+ var userRow int
+ for userRow != 3 {
+  fmt.Println("Enter your row as 0-2, or 3 to STOP")
+    fmt.Scanln(&userRow)
+    if userRow == 0 {
+      fmt.Println("Enter your column as 0-2")
+        fmt.Scanln(&userColumn)
+          if row[userColumn] == "O" {}
+            row[userColumn] = "X"
+    
+  
+    }else if userRow == 1 {
+        fmt.Println("Enter your column as 0-2")
+        fmt.Scanln(&userColumn)
+        if row2[userColumn] == "O" {
+            row2[userColumn] = "X"
+          }
+          }else if userRow == 2 {
+              fmt.Println("Enter your column as 0-2")
+        fmt.Scanln(&userColumn)
+        if row3[userColumn] == "O" {
+            row3[userColumn] = "X"
+          }
+          }
+ //}    
+    
 
-switch status{
-  case 1: { //tax brackets for single
-if grossIncome <= 9700{
-  fmt.Println("You are in the 10% bracket, you owe",grossIncome*.1)
-}else if grossIncome <= 39475{
-  fmt.Println("You are in the 12% bracket, you owe",grossIncome*.12)
-}else if grossIncome <= 84200{
-  fmt.Println("You are in the 22% bracket, you owe",grossIncome*.22)
-}else if grossIncome <= 160725{
-  fmt.Println("You are in the 24% bracket, you owe",grossIncome*.24)
-}else if grossIncome <= 204100{
-  fmt.Println("You are in the 32% bracket, you owe",grossIncome*.32)
-}else if grossIncome <= 510300{
-  fmt.Println("You are in the 35% bracket, you owe",grossIncome*.35)
-}else{
-  fmt.Println("You are in the 37% bracket, you owe",grossIncome*.37) 
-}
-}
-case 2: //tax brackets for married filing jointed
-  if grossIncome <= 19400{
-  fmt.Println("You are in the 10% bracket, you owe",grossIncome*.1)
-}else if grossIncome <= 78950{
-  fmt.Println("You are in the 12% bracket, you owe",grossIncome*.12)
-}else if grossIncome <= 168400{
-  fmt.Println("You are in the 22% bracket, you owe",grossIncome*.22)
-}else if grossIncome <= 321450{
-  fmt.Println("You are in the 24% bracket, you owe",grossIncome*.24)
-}else if grossIncome <= 408200{
-  fmt.Println("You are in the 32% bracket, you owe",grossIncome*.32)
-}else if grossIncome <= 612350{
-  fmt.Println("You are in the 35% bracket, you owe",grossIncome*.35)
-}else{
-  fmt.Println("You are in the 37% bracket, you owe",grossIncome*.37) 
-}
+fmt.Println(row)
+   fmt.Println(row2)
+    fmt.Println(row3)
+   }
+   }
+  
 
-  case 3: //tax brackets for head of household
-  if grossIncome <= 13850{
-  fmt.Println("You are in the 10% bracket, you owe",grossIncome*.1)
-}else if grossIncome <= 52850{
-  fmt.Println("You are in the 12% bracket, you owe",grossIncome*.12)
-}else if grossIncome <= 84200{
-  fmt.Println("You are in the 22% bracket, you owe",grossIncome*.22)
-}else if grossIncome <= 160700{
-  fmt.Println("You are in the 24% bracket, you owe",grossIncome*.24)
-}else if grossIncome <= 204100{
-  fmt.Println("You are in the 32% bracket, you owe",grossIncome*.32)
-}else if grossIncome <= 510300{
-  fmt.Println("You are in the 35% bracket, you owe",grossIncome*.35)
-}else{
-  fmt.Println("You are in the 37% bracket, you owe",grossIncome*.37) 
-}
-  case 4: //tax brackets for married filing seperately
-  if grossIncome <= 9700{
-  fmt.Println("You are in the 10% bracket, you owe",grossIncome*.1)
-}else if grossIncome <= 39475{
-  fmt.Println("You are in the 12% bracket, you owe",grossIncome*.12)
-}else if grossIncome <= 84200{
-  fmt.Println("You are in the 22% bracket, you owe",grossIncome*.22)
-}else if grossIncome <= 160725{
-  fmt.Println("You are in the 24% bracket, you owe",grossIncome*.24)
-}else if grossIncome <= 204100{
-  fmt.Println("You are in the 32% bracket, you owe",grossIncome*.32)
-}else if grossIncome <= 306175{
-  fmt.Println("You are in the 35% bracket, you owe",grossIncome*.35)
-}else{
-  fmt.Println("You are in the 37% bracket, you owe",grossIncome*.37) 
-}
 
-}
-}
+
+ 
+ 
