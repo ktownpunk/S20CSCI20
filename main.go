@@ -83,7 +83,7 @@ for counter <6 {
 }
 seed := rand.NewSource(time.Now().UnixNano())
     randomNumber := rand.New(seed)
-var numbers = [5]int{(randomNumber.Intn(5))}
+var numbers = [5]int{(randomNumber.Intn(100)),(randomNumber.Intn(100)),(randomNumber.Intn(100)),(randomNumber.Intn(100)),(randomNumber.Intn(100))}
 	min, max := findMinAndMax(numbers)
 	fmt.Println("Minimum: ", min) //prints the min value
 	fmt.Println("Maximum: ", max) //print the max value
