@@ -1,48 +1,35 @@
-// Programmer name: Jacob Harter
-// Date completed:  3/29/20
-// Description:Random feedback
-
 package main
 
-import "fmt"
-import "math/rand"
-import "time"
-func Correct(){ //correct function, makes a random numebr which the switch outputs a random phrase
-seed := rand.NewSource(time.Now().UnixNano())
-random := rand.New(seed)
-var feedback = (random.Intn(3))
-  switch feedback{
-    case 0:fmt.Println("Very Good!")
-    case 1:fmt.Println("Nice Job!")
-    case 2:fmt.Println("Keep it up!")
-  }
-  
-
-}
-func Incorrect(){//incorrect funtion, random number, switch same as the previous function
-seed2 := rand.NewSource(time.Now().UnixNano())
-random2 := rand.New(seed2)
-var feedback = (random2.Intn(3))
-  switch feedback{
-    case 0:fmt.Println("Try Again")
-    case 1:fmt.Println("Don't give up!")
-    case 2:fmt.Println("Give it another shot!")
-  }
-
+import (
+    "fmt"
+)
+func chorus(){ 
+  fmt.Println("And now I'm turning to dust in a world that's twisted")
+  fmt.Println("Don't come searching when I go missing")
+  fmt.Println("Close your eyes or just try to look away... I don't want to hurt you")
+  fmt.Println("We live in a world someone else imagined, the ghost of what's left of me is all but vanished")
+  fmt.Println("Remember by heart, how bright I used to shine")
 }
 
-func main() {//asks user the question and displays the choices to answer, then prompts input
-  var UserInput string
-  fmt.Println("What is a variable")
-  fmt.Println("A. A reserved place in memory which can store one value")
-  fmt.Println("B. A named number")
-  fmt.Println("C. A math term")
-  fmt.Println("D. A series of characters")
-  fmt.Println("Enter your answer as a capital single character A B C or D")
-  fmt.Scanln(&UserInput)
-  if UserInput == "A" { //checks if the input is true or false
-  Correct() //if true, calls on the correct function
-  }else{
-  Incorrect()//if false calls on the incorrect function
-  }
+func main() {
+  fmt.Println("Oh can you tell me, can you tell me the way the story ends.")
+  fmt.Println("A monster in my heart, a ghost inside my chest")
+  fmt.Println("I'm broken down the world around me surrounds my suffering,you smile and laugh at me, but you don't see a thing")
+  fmt.Println("-pause-")
+  fmt.Println("Damaged and broken as I am, I'm trying not to breathe.")
+  fmt.Println("Unravel I'm, not unraveled by the truth I finally see... freeze.")
+  fmt.Println("I'm breakable. Unbreakable. I'm shakeable, unshakeable,unraveling since I found you.")
+  chorus()
+  fmt.Println("Entangled in the lonlieness, the memories of innocence")
+  fmt.Println("It's stinging me, It's breaking me, the pain is spreading endlessly")
+  fmt.Println("I cannot move, I close my eyes I try to breath I realize, I'm paralyzed, I'm paralyzed...UNRAVEL THE WORLD")
+  fmt.Println("I'm not what I was then, don't touch the infection. Entwined we will both die so stay away, stay alive")
+  fmt.Println("I'm breakable,unbreakable, I'm shakeable. Unshakeable. Unravelling I won't infect you!")
+  chorus()
+  fmt.Println("Please, just don't forget me,don;t forget me, don't forget me, don't forget me,don't forget me!")
+  fmt.Println("We live in a world someone else imagined")
+  fmt.Println("The ghost of what's left of me all but vanished")
+  fmt.Println("Remember my heart, how bright I used to shine")
+  fmt.Println("Oh can you tell me, oh can you tell me")
+  fmt.Println("A monster in my heart, and now there's nothing left.")
 }
