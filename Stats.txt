@@ -1,1 +1,5 @@
-0/n/n0/n/n0/n/n
+third
+Headshot Damage:3
+Body/Arm Damage:4
+Leg Damage:5
+

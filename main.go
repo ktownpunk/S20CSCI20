@@ -5,25 +5,49 @@ import(
 "os"
 //"bufio"
 "strconv"
-
 )
-func main() {
+
+
+func damageTest(){
   var userInput int
-  var YN string
-  var gNumber int
+  var gName string
   Stats, err := os.Create("Stats.txt")
   if err != nil{
     panic(err)
   }
-  fmt.Println("Enter Y to continue or N to Stop")
+    fmt.Println("What weapon is being tested?")
+    fmt.Scanln(&gName)
+    Stats.WriteString(gName)
+    Stats.WriteString("\n")
+    fmt.Println("Enter the damage for Headshot")
+    fmt.Scanln(&userInput)
+    Stats.WriteString("Headshot Damage:")
+    Stats.WriteString(strconv.Itoa(userInput))
+    Stats.WriteString("\n")
+    fmt.Println("Enter the damage for Body/Arm")
+    fmt.Scanln(&userInput)
+    Stats.WriteString("Body/Arm Damage:")
+    Stats.WriteString(strconv.Itoa(userInput))
+    Stats.WriteString("\n")
+    fmt.Println("Enter the damage for Leg")
+    fmt.Scanln(&userInput)
+    Stats.WriteString("Leg Damage:")
+    Stats.WriteString(strconv.Itoa(userInput))
+    Stats.WriteString("\n")
+    Stats.WriteString("\n")
+}
+func main() {
+  var YN string
+  //var gNumber int
+  Stats, err := os.Create("Stats.txt")
+  if err != nil{
+    panic(err)
+  }
+  fmt.Println("Enter Y to continue or N to stop")
   fmt.Scanln(&YN)
   for YN == "Y"{
-    Stats.WriteString(strconv.Itoa(gNumber))
-    Stats.WriteString("/n")
-    fmt.Println("Enter the damage for this test")
-    fmt.Scanln(&userInput)
-    Stats.WriteString("/n")
-    fmt.Println("Enter Y to continue, N to stop")
+    damageTest()
+    fmt.Println("Enter Y to continue or N to stop")
     fmt.Scanln(&YN)
   }
   
