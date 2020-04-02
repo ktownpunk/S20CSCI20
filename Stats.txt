@@ -1,5 +1,0 @@
-third
-Headshot Damage:3
-Body/Arm Damage:4
-Leg Damage:5
-

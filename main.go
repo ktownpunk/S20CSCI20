@@ -1,56 +1,48 @@
+// Programmer name: Jacob Harter
+// Date completed:  3/29/20
+// Description:Random feedback
+
 package main
 
-import(
-"fmt"
-"os"
-//"bufio"
-"strconv"
-)
-
-
-func damageTest(){
-  var userInput int
-  var gName string
-  Stats, err := os.Create("Stats.txt")
-  if err != nil{
-    panic(err)
-  }
-    fmt.Println("What weapon is being tested?")
-    fmt.Scanln(&gName)
-    Stats.WriteString(gName)
-    Stats.WriteString("\n")
-    fmt.Println("Enter the damage for Headshot")
-    fmt.Scanln(&userInput)
-    Stats.WriteString("Headshot Damage:")
-    Stats.WriteString(strconv.Itoa(userInput))
-    Stats.WriteString("\n")
-    fmt.Println("Enter the damage for Body/Arm")
-    fmt.Scanln(&userInput)
-    Stats.WriteString("Body/Arm Damage:")
-    Stats.WriteString(strconv.Itoa(userInput))
-    Stats.WriteString("\n")
-    fmt.Println("Enter the damage for Leg")
-    fmt.Scanln(&userInput)
-    Stats.WriteString("Leg Damage:")
-    Stats.WriteString(strconv.Itoa(userInput))
-    Stats.WriteString("\n")
-    Stats.WriteString("\n")
-}
-func main() {
-  var YN string
-  //var gNumber int
-  Stats, err := os.Create("Stats.txt")
-  if err != nil{
-    panic(err)
-  }
-  fmt.Println("Enter Y to continue or N to stop")
-  fmt.Scanln(&YN)
-  for YN == "Y"{
-    damageTest()
-    fmt.Println("Enter Y to continue or N to stop")
-    fmt.Scanln(&YN)
+import "fmt"
+import "math/rand"
+import "time"
+func Correct(){ //correct function, makes a random numebr which the switch outputs a random phrase
+seed := rand.NewSource(time.Now().UnixNano())
+random := rand.New(seed)
+var feedback = (random.Intn(3))
+  switch feedback{
+    case 0:fmt.Println("Very Good!")
+    case 1:fmt.Println("Nice Job!")
+    case 2:fmt.Println("Keep it up!")
   }
   
-  Stats.Sync()
-  Stats.Close()
+
+}
+func Incorrect(){//incorrect funtion, random number, switch same as the previous function
+seed2 := rand.NewSource(time.Now().UnixNano())
+random2 := rand.New(seed2)
+var feedback = (random2.Intn(3))
+  switch feedback{
+    case 0:fmt.Println("Try Again")
+    case 1:fmt.Println("Don't give up!")
+    case 2:fmt.Println("Give it another shot!")
+  }
+
+}
+
+func main() {//asks user the question and displays the choices to answer, then prompts input
+  var UserInput string
+  fmt.Println("What is a variable")
+  fmt.Println("A. A reserved place in memory which can store one value")
+  fmt.Println("B. A named number")
+  fmt.Println("C. A math term")
+  fmt.Println("D. A series of characters")
+  fmt.Println("Enter your answer as a capital single character A B C or D")
+  fmt.Scanln(&UserInput)
+  if UserInput == "A" { //checks if the input is true or false
+  Correct() //if true, calls on the correct function
+  }else{
+  Incorrect()//if false calls on the incorrect function
+  }
 }
