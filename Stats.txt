@@ -1,5 +1,5 @@
-5
-Headshot Damage:6
-Body/Arm Damage:7
-Leg Damage:8
+scar
+Headshot Damage:12
+Body/Arm Damage:23
+Leg Damage:2
 
