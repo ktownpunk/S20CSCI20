@@ -1,73 +1,56 @@
-// Programmer name: Jacob Harter
-// Date completed:  3/29/20
-// Description:Random feedback
-
 package main
 
-import "fmt"
-//import "math/rand"
-//import "time"
+import(
+"fmt"
+"os"
+//"bufio"
+"strconv"
+)
+ 
 
-func age(bYear int,cYear int){
-  fmt.Println("Your age is ",cYear-bYear)
-}
-func eggs(doz int){
-fmt.Println(doz,"dozens are ",doz*12," eggs")
-}
-func swap(num1 int,num2 int){
-fmt.Println("Your numbers swapped are",num2,"and",num1,"Magic!")
-}
-func gradeReport(score int){
-  grade:= score/10
-  switch grade{
-    case 10:
-      fmt.Println("The grade is an A+")
-    case 9:
-      fmt.Println("The grade is an A")
-    case 8:
-      fmt.Println("The grade is a B")
-    case 7:
-      fmt.Println("The grade is a C")
-    default:
-      fmt.Println("The grade is a Fail")
+func damageTest(){
+  var userInput int
+  var gName string
+ Stats,err:=("Stats.txt")
+  if err != nil{
+    panic(err)
   }
+    fmt.Println("What weapon is being tested?")
+    fmt.Scanln(&gName)
+    Stats.WriteString(gName)
+    Stats.WriteString("\n")
+    fmt.Println("Enter the damage for Headshot")
+    fmt.Scanln(&userInput)
+    Stats.WriteString("Headshot Damage:")
+    Stats.WriteString(strconv.Itoa(userInput))
+    Stats.WriteString("\n")
+    fmt.Println("Enter the damage for Body/Arm")
+    fmt.Scanln(&userInput)
+    Stats.WriteString("Body/Arm Damage:")
+    Stats.WriteString(strconv.Itoa(userInput))
+    Stats.WriteString("\n")
+    fmt.Println("Enter the damage for Leg")
+    fmt.Scanln(&userInput)
+    Stats.WriteString("Leg Damage:")
+    Stats.WriteString(strconv.Itoa(userInput))
+    Stats.WriteString("\n")
+    Stats.WriteString("\n")
 }
-func ask(){
-  var userInput string
- fmt.Println("Enter which function you would like to use: Accepted choices are AGE, EGGS, SWAP, and GRADEREPORT")
-  fmt.Scanln(&userInput)
-  if userInput == "AGE"{
-    var bYear int
-    var cYear int
-    fmt.Println("Enter your birth year in YYYY format, example 2003")
-    fmt.Scanln(&bYear)
-    fmt.Println("Enter the current year")
-    fmt.Scanln(&cYear)
-    age(bYear,cYear)
-  }else if userInput == "EGGS"{
-    var doz int
-    fmt.Println("How many dozen's of eggs would you like to translate?")
-    fmt.Scanln(&doz)
-    eggs(doz)
-}else if userInput == "SWAP"{
-  var num1 int
-  var num2 int
-  fmt.Println("Enter a number")
-  fmt.Scanln(&num1)
-  fmt.Println("Enter another number")
-  fmt.Scanln(&num2)
-  swap(num1,num2)
-}else if userInput == "GRADEREPORT"{
-  var score int
-  fmt.Println("Enter the score as a number between 0-100")
-  fmt.Scanln(&score)
-  gradeReport(score)
-} else {
-  fmt.Println("Sorry that isn't an option, try again")
-  ask()
-}
-}
-func main(){
-  fmt.Println("What would you like to")
-  ask()
+func main() {
+  var YN string
+  //var gNumber int
+  Stats, err := os.Create("Stats.txt")
+  if err != nil{
+    panic(err)
+  }
+  fmt.Println("Enter Y to continue or N to stop")
+  fmt.Scanln(&YN)
+  for YN == "Y"{
+    damageTest()
+    fmt.Println("Enter Y to continue or N to stop")
+    fmt.Scanln(&YN)
+  }
+  
+  Stats.Sync()
+  Stats.Close()
 }
