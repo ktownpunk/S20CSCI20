@@ -1,0 +1,5 @@
+5
+Headshot Damage:6
+Body/Arm Damage:7
+Leg Damage:8
+

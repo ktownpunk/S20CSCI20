@@ -11,7 +11,7 @@ import(
 func damageTest(){
   var userInput int
   var gName string
- Stats,err:=("Stats.txt")
+ Stats,err:=os.Create("Stats.txt")
   if err != nil{
     panic(err)
   }
