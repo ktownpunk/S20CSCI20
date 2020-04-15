@@ -2,84 +2,40 @@ package main
 
 import(
 "fmt"
-"os"
-//"bufio"
-"strconv"
 )
- 
 
-func damageTest(counter int){
-  var userInput int
-  var gName string
-  if counter == 1{
- Stats,err:=os.Create("Stats.txt")
-  if err != nil{
-    panic(err)
-  }
-    fmt.Println("What weapon is being tested?")
-    fmt.Scanln(&gName)
-    Stats.WriteString(gName)
-    Stats.WriteString("\n")
-    fmt.Println("Enter the damage for Headshot")
-    fmt.Scanln(&userInput)
-    Stats.WriteString("Headshot Damage:")
-    Stats.WriteString(strconv.Itoa(userInput))
-    Stats.WriteString("\n")
-    fmt.Println("Enter the damage for Body/Arm")
-    fmt.Scanln(&userInput)
-    Stats.WriteString("Body/Arm Damage:")
-    Stats.WriteString(strconv.Itoa(userInput))
-    Stats.WriteString("\n")
-    fmt.Println("Enter the damage for Leg")
-    fmt.Scanln(&userInput)
-    Stats.WriteString("Leg Damage:")
-    Stats.WriteString(strconv.Itoa(userInput))
-    Stats.WriteString("\n")
-    Stats.WriteString("\n")
-  }else{
-    Stats, err := os.OpenFile("Stats.txt", os.O_APPEND|os.O_WRONLY, 0644)
-    if err != nil {
-        fmt.Println(err)
-    }
-fmt.Println("What weapon is being tested?")
-    fmt.Scanln(&gName)
-    Stats.WriteString(gName)
-    Stats.WriteString("\n")
-    fmt.Println("Enter the damage for Headshot")
-    fmt.Scanln(&userInput)
-    Stats.WriteString("Headshot Damage:")
-    Stats.WriteString(strconv.Itoa(userInput))
-    Stats.WriteString("\n")
-    fmt.Println("Enter the damage for Body/Arm")
-    fmt.Scanln(&userInput)
-    Stats.WriteString("Body/Arm Damage:")
-    Stats.WriteString(strconv.Itoa(userInput))
-    Stats.WriteString("\n")
-    fmt.Println("Enter the damage for Leg")
-    fmt.Scanln(&userInput)
-    Stats.WriteString("Leg Damage:")
-    Stats.WriteString(strconv.Itoa(userInput))
-    Stats.WriteString("\n")
-    Stats.WriteString("\n")
-    fmt.Println(counter)
-  }
+func add(num1 int, num2 int) int{
+
+return num1+num2
 }
+
+func subtract(num1 int, num2 int) int{
+return num1-num2
+}
+
+func multiply(num1 int, num2 int) int{
+  return num1*num2
+}
+//write a function for multiply
+func divide(num1 int, num2 int) int{
+return num1/num2
+}
+//write a function for division
+
 func main() {
-  var YN string
-  var gNumber = 1
-  Stats, err := os.Create("Stats.txt")
-  if err != nil{
-    panic(err)
-  }
-  fmt.Println("Enter Y to continue or N to stop")
-  fmt.Scanln(&YN)
-  for YN == "Y"{
-    damageTest(gNumber)
-    fmt.Println("Enter Y to continue or N to stop")
-    fmt.Scanln(&YN)
-    gNumber++
-  }
-  
-  Stats.Sync()
-  Stats.Close()
+a := 0
+b := 75;
+a=multiply(b,2)
+//double the b value
+a=add(a,9)
+//add 9 to the result
+a=subtract(a,3)
+//subtract 3 from the result
+a=divide(a,2)
+//divide the result by 2
+a=subtract(a,b)
+//subtract the original value b from the result
+fmt.Println(a)
+//output the answer
+//the answer should be 3
 }
